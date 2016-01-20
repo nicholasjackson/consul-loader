@@ -1,6 +1,6 @@
 # consul-loader
 Consul Loader is a simple gem to convert a yaml file into a series of consul keys and values.  Consul Loader will traverse your yaml file and generate a key from the location of each value.  For example you have a yaml file like the example below:
-```
+```yaml
 first: 'one'
 api:
   eventsauce:
@@ -14,7 +14,7 @@ This would generate two consul keys:
 | /api/eventsauce/stats_d_server_url | statsd:8125 |
 
 If your yaml file contains an array of values then Consul Loader would convert this into a json formatted array. For example:
-```
+```yaml
 retry_intervals:
   - '1s'
   - '1m'
@@ -31,19 +31,19 @@ Would result in the below consul key:
 Consul Loader always checks the value of the existing key, if it matches the current key then this is not overwritten to ensure consul-template or any other clients watching the kv store will update incorrectly.
 
 ## Usage to load a folder of .yaml files
-```
+```ruby
   loader = ConsulLoader::Loader.new(ConsulLoader::ConfigParser.new)
   loader.load_config './config', 'http://consul.myhost.com:8500'
 ```
 
 ## Usage to load a single yaml file
-```
+```ruby
   loader = ConsulLoader::Loader.new(ConsulLoader::ConfigParser.new)
   loader.load_config './config/myfile.yml', 'http://consul.myhost.com:8500'
 ```
 
 ## Example yaml config
-```
+```yaml
 first: 'one'
 api:
   eventsauce:
