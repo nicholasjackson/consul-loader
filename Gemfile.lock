@@ -8,6 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    coderay (1.1.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
@@ -16,8 +17,13 @@ GEM
     hashdiff (0.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    method_source (0.8.2)
     mime-types (2.99)
     netrc (0.11.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rake (10.5.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -37,6 +43,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     safe_yaml (1.0.4)
+    slop (3.6.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
@@ -50,6 +57,7 @@ PLATFORMS
 
 DEPENDENCIES
   consul_loader!
+  pry
   rake
   rspec
   webmock

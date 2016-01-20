@@ -40,7 +40,26 @@ module ConsulLoader
         value = c[:v]
       end
 
-      RestClient.put "#{server}/v1/kv/#{c[:k]}", value
+      check_and_send_value c[:k], value, server
+    end
+
+    def check_and_send_value key, value, server
+      send_data = true
+
+      begin
+        response = RestClient.get "#{server}/v1/kv/#{key}"
+        decoder = ConsulLoader::ResponseDecoder.new
+        existing_value = decoder.decode_value response.body
+        if value == existing_value
+          send_data = false
+        end
+      rescue
+        send_data = true
+      end
+
+      if send_data
+        RestClient.put "#{server}/v1/kv/#{key}", value
+      end
     end
   end
 end
