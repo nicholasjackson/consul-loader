@@ -1,5 +1,6 @@
 # consul-loader
-[![Build Status](https://travis-ci.org/nicholasjackson/consul-loader.svg?branch=master)](https://travis-ci.org/nicholasjackson/consul-loader)
+[![Build Status](https://travis-ci.org/nicholasjackson/consul-loader.svg?branch=master)](https://travis-ci.org/nicholasjackson/consul-loader)  
+[![Code Climate](https://codeclimate.com/github/nicholasjackson/consul-loader/badges/gpa.svg)](https://codeclimate.com/github/nicholasjackson/consul-loader) [![Test Coverage](https://codeclimate.com/github/nicholasjackson/consul-loader/badges/coverage.svg)](https://codeclimate.com/github/nicholasjackson/consul-loader/coverage) [![Issue Count](https://codeclimate.com/github/nicholasjackson/consul-loader/badges/issue_count.svg)](https://codeclimate.com/github/nicholasjackson/consul-loader)
 
 Consul Loader is a simple gem to convert a yaml file into a series of consul keys and values.  Consul Loader will traverse your yaml file and generate a key from the location of each value.  For example you have a yaml file like the example below:
 ```yaml
