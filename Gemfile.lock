@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    consul_loader (0.0.0)
+    consul_loader (0.0.1)
       rest-client
 
 GEM

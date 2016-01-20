@@ -47,10 +47,10 @@ module ConsulLoader
       send_data = true
 
       begin
-        response = RestClient.get "#{server}/v1/kv/#{key}"
+        response = RestClient.get "#{server}/v1/kv#{key}"
         decoder = ConsulLoader::ResponseDecoder.new
         existing_value = decoder.decode_value response.body
-        if value == existing_value
+        if value.to_s == existing_value.to_s
           send_data = false
         end
       rescue
@@ -58,7 +58,8 @@ module ConsulLoader
       end
 
       if send_data
-        RestClient.put "#{server}/v1/kv/#{key}", value
+        puts "Updating key: #{key} with value: #{value}"
+        RestClient.put "#{server}/v1/kv#{key}", value.to_s
       end
     end
   end

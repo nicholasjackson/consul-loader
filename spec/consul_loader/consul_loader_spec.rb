@@ -4,7 +4,7 @@ describe ConsulLoader::Loader do
 
   let(:mock_parser) {
     dbl = double("MockParser")
-    allow(dbl).to receive(:process_yaml).and_return([{:k => "abc", :v => "123"}])
+    allow(dbl).to receive(:process_yaml).and_return([{:k => "/abc", :v => "123"}])
     return dbl
   }
 
