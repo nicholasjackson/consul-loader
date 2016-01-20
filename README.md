@@ -7,7 +7,9 @@ api:
     stats_d_server_url: 'statsd:8125'
 
 ```
-This would generate two consul keys:  
+
+This would generate two consul keys:
+
 | key                                | value       |
 | ---------------------------------- | ----------- |
 | /first                             | one         |
@@ -22,7 +24,9 @@ retry_intervals:
   - '1h'
   - '1d'
 ```
-Would result in the below consul key:
+
+Would result in the below consul key:  
+
 | key                                | value                        |
 | ---------------------------------- | ---------------------------- |
 | /retry_intervals                   | ["10s","1m","15m","1h","1d"] |
