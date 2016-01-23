@@ -10,15 +10,13 @@ module ConsulLoader
     def load_config location, server
       if File.directory? location
         load_folder location, server
-      elsif
-        load_file_and_upload location, server
+      elsif load_file_and_upload location, server
       else
         raise Errno::ENOENT
       end
     end
 
-    :private
-
+    private
     def load_folder folder, server
       Dir.glob("#{folder}/*.yaml").each do |x|
         load_file_and_upload x, server

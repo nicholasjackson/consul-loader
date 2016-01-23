@@ -3,6 +3,7 @@ Bundler.setup
 
 require 'webmock/rspec'
 require 'consul_loader' # and any other gems you need
+
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
